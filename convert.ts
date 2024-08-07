@@ -1,21 +1,31 @@
 import satori from "npm:satori@0.10.13";
 import { html } from "npm:satori-html@0.3.2";
 import { ReactNode } from "npm:@types/react@18.2.38/index.d.ts";
-import { Font } from "./types.ts";
 import { Resvg, ResvgRenderOptions } from "npm:@resvg/resvg-js";
+import { classToInline } from "npm:html-style-converter@1.4.3";
+import { Font } from "./types.ts";
 
-export async function markupToPng(markup: string, fonts: Font[]) {
-  const react = html(markup);
-  const width = 600;
+type PngConvOptions = {
+  width: number;
+  height: number;
+  fonts: Font[];
+};
 
-  const svg = await satori(react as ReactNode, {
+export async function markupToPng(
+  markup: string,
+  { width, height, fonts }: PngConvOptions,
+) {
+  const inlined = classToInline(markup);
+  const react: ReactNode = html(inlined);
+  const svg = await satori(react, {
     width,
+    height,
     fonts,
   });
 
   const resvgOpts: ResvgRenderOptions = {
     fitTo: {
-      mode: "width", // If you need to change the size
+      mode: "width",
       value: width,
     },
   };

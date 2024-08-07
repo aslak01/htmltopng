@@ -6,7 +6,13 @@
     "esm:remove": "deno run -A https://esm.sh/v135 remove"
   },
   "imports": {
-    "@resvg/resvg-js": "https://esm.sh/v135/@resvg/resvg-js@2.6.2"
+    "@resvg/resvg-js": "https://esm.sh/v135/@resvg/resvg-js@2.6.2",
+    "html-style-converter": "https://esm.sh/v135/*html-style-converter@1.4.3"
   },
-  "scopes": {}
+  "scopes": {
+    "https://esm.sh/v135/": {
+      "cheerio": "https://esm.sh/v135/cheerio@1.0.0-rc.12",
+      "lodash": "https://esm.sh/v135/lodash@4.17.21"
+    }
+  }
 }

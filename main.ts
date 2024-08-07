@@ -1,5 +1,7 @@
 import { markupToPng } from "./convert.ts";
 import { Font } from "./types.ts";
+import { toText } from "https://deno.land/std@0.224.0/streams/mod.ts";
+import { assert } from "jsr:@std/assert@1";
 
 export function add(a: number, b: number): number {
   return a + b;
@@ -8,6 +10,12 @@ export function add(a: number, b: number): number {
 main();
 
 async function main() {
+  const url = Deno.args[0];
+
+  const fetchObj = await fetch(url);
+  const htmlstr = await toText(fetchObj.body);
+  console.log(htmlstr);
+
   const roboto = Deno.readFileSync("./Roboto-Regular.ttf");
   const fonts: Font[] = [
     {
@@ -17,8 +25,12 @@ async function main() {
       style: "normal",
     },
   ];
-  const markup = "<h1>hei</h1>";
-  const png = await markupToPng(markup, fonts);
+  const opts = {
+    fonts,
+    width: 600,
+    height: 300,
+  };
+  const png = await markupToPng(htmlstr, opts);
 
   Deno.writeFileSync("./testfile.png", png);
 }
