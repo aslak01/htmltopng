@@ -3,7 +3,8 @@
     "dev": "deno run --watch main.ts",
     "esm:add": "deno run -A https://esm.sh/v135 add",
     "esm:update": "deno run -A https://esm.sh/v135 update",
-    "esm:remove": "deno run -A https://esm.sh/v135 remove"
+    "esm:remove": "deno run -A https://esm.sh/v135 remove",
+    "convert": "deno run "
   },
   "imports": {
     "@resvg/resvg-js": "https://esm.sh/v135/@resvg/resvg-js@2.6.2",

@@ -2,6 +2,7 @@
   "version": "3",
   "packages": {
     "specifiers": {
+      "jsr:@b-fuze/deno-dom@0.1.47": "jsr:@b-fuze/deno-dom@0.1.47",
       "jsr:@std/assert@1": "jsr:@std/assert@1.0.2",
       "jsr:@std/internal@^1.0.1": "jsr:@std/internal@1.0.1",
       "npm:@resvg/resvg-js": "npm:@resvg/resvg-js@2.6.0",
@@ -11,6 +12,9 @@
       "npm:satori@0.10.13": "npm:satori@0.10.13"
     },
     "jsr": {
+      "@b-fuze/deno-dom@0.1.47": {
+        "integrity": "270a888de91329f8ce3849211ece0ad97ce1e8b9a8a774f2bed2f43c8b0ffe8e"
+      },
       "@std/assert@1.0.2": {
         "integrity": "ccacec332958126deaceb5c63ff8b4eaf9f5ed0eac9feccf124110435e59e49c",
         "dependencies": [
